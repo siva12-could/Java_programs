@@ -1,0 +1,31 @@
+// Longest continuous sequence that can be made
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int n1=input.nextInt();
+        HashSet<Integer> set = new HashSet<>();
+        int maxcount = 0;
+        while(n1>0){
+            set.add(input.nextInt());
+            n1--;
+        }
+        for(Integer i : set){
+            if(!set.contains(i-1)){
+                int count =1;
+                while(set.contains(i+1)){
+                    count++;
+                    i++;
+                }
+                maxcount = Math.max(maxcount,count);
+            }
+        }
+        System.out.println(maxcount);
+        
+        
+    }
+}
